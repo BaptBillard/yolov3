@@ -12,4 +12,7 @@ if __name__ == '__main__':
 
     for image_path in images_pathes:
         os.rename(image_path, output_labels_folder+image_path[-13:])
-        os.rename(output_labels_folder+image_path[-13:],output_labels_folder+image_path[-13:7]+".png")
+   
+    images_pathes = [str(PosixPath(path)) for path in Path(output_labels_folder).rglob("*_Cl.png")]
+    for image_path in images_pathes:
+        os.rename(image_path, image_path[0:19]+".png")
