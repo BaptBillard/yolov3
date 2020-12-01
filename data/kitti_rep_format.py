@@ -12,3 +12,4 @@ if __name__ == '__main__':
 
     for image_path in images_pathes:
         os.rename(image_path, output_labels_folder+image_path[-13:])
+        os.rename(output_labels_folder+image_path[-13:],output_labels_folder+image_path[-13:7]+".png")
