@@ -7,7 +7,7 @@ if __name__ == '__main__':
     img_size = (1242, 375)  # width, height: à vérifier
 
     images_folder = 'training/images/'
-    output_labels_folder = "kitti/labels/"
+    output_labels_folder = "kitti/images/"
     images_pathes = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Cl.png")]
 
     for image_path in images_pathes:
