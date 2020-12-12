@@ -15,13 +15,13 @@ if __name__ == '__main__':
 
     # create merged images
     for i in range(len(images_pathes_dp)):
-        tmp_merged_path = image_pathes_dp[i]
+        tmp_merged_path = images_pathes_dp[i]
         tmp_merged_path = tmp_merged_path[:-7] + ".png"
 
         tmp_img_dp = cv2.imread(images_pathes_dp[i], 0)
         tmp_img_of = cv2.imread(images_pathes_of[i], 0)
         tmp_img_vl = cv2.imread(images_pathes_vl[i], 0)
-        
+
         # channel order can be changed if needed
         tmp_merged_image = cv2.merge((tmp_img_dp, tmp_img_of, tmp_img_vl))
 
