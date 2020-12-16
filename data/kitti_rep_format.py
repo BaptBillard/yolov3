@@ -50,18 +50,19 @@ if __name__ == '__main__':
     random.shuffle(images_pathes)
     images_pathes_val = []
     labels_indices_val = []
-    labels_indices_train = []
     for i in range(0,int(len(images_pathes)/5)):
         images_pathes_val.append(images_pathes.pop())
         tmp_path = output_val_folder + images_pathes_val[i][-13:]
-        print(images_pathes_val[i][-13:-7])
         labels_indices_val.append(int(images_pathes_val[i][-13:-7]))
         tmp_path = tmp_path.rsplit("_", 1)[0] + ".png"
         
         os.rename(images_pathes_val[i], tmp_path)
 
-    for i in labels_indices_val:
-        labelsFormat(i, labels_pathes, output_labels_val_folder)
+    for i in range(0, len(labels_pathes)):
+        if i in labels_indices_val:
+            labelsFormat(i, labels_pathes, output_labels_val_folder)
+        else :
+            labelsFormat(i, labels_pathes, output_labels_train_folder)
 
 
     # put the 4/5 remaining in train
@@ -69,11 +70,4 @@ if __name__ == '__main__':
         tmp_path = output_train_folder + image_path[-13:]
         tmp_path = tmp_path.rsplit("_", 1)[0] + ".png"
         os.rename(image_path, tmp_path)
-
-    for i in range(len(labels_pathes)):
-        if i not in labels_indices_val:
-            labels_indices_train.append(i)
-
-    for i in labels_indices_train:
-        labelsFormat(i, labels_pathes, output_labels_train_folder)
 
