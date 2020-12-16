@@ -3,14 +3,13 @@ from pathlib import Path, PosixPath
 import os
 import random
 
-def labelsFormat(indice,labels_path):
+def labelsFormat(indice, labels_pathes, labels_path):
     
     kitti_labels = {"Car": 0, "Van": 1, "Truck": 2, "Pedestrian": 3, "Person_sitting": 4, "Cyclist": 5, "Tram": 6,  "Misc": 7, "DontCare": 7}
     img_size = (1242, 375)  # width, height: à vérifier
 
     labels_folder = 'training/labels/'
     output_labels_folder = labels_path
-    labels_pathes = [str(PosixPath(path)) for path in Path(labels_folder).rglob("*.txt")]
 
     f_old = open(labels_pathes[indice], "r")
     f_new = open(output_labels_folder + labels_pathes[indice][-10:], "w")  # on veut juste le nom du fichier, pas tout le chemin
@@ -51,18 +50,19 @@ if __name__ == '__main__':
     # put 1/5 in val
     random.shuffle(images_pathes)
     images_pathes_val = []
-    images_indices_val_labels = []
-    images_indices_train_labels = []
+    labels_indices_val = []
+    labels_indices_train = []
     for i in range(0,int(len(images_pathes)/5)):
         images_pathes_val.append(images_pathes.pop())
         tmp_path = output_val_folder + images_pathes_val[i][-13:]
-        images_indices_val_labels.append(int(images_pathes_val[i][-13:-7]))
+        print(int(images_pathes_val[i][-13:-7]))
+        labels_indices_val.append(int(images_pathes_val[i][-13:-7]))
         tmp_path = tmp_path.rsplit("_", 1)[0] + ".png"
         
         os.rename(images_pathes_val[i], tmp_path)
 
-    for i in images_indices_val_labels:
-        labelsFormat(i,output_labels_val_folder)
+    for i in labels_indices_val_labels:
+        labelsFormat(i, labels_pathes, output_labels_val_folder)
 
 
     # put the 4/5 remaining in train
@@ -72,9 +72,9 @@ if __name__ == '__main__':
         os.rename(image_path, tmp_path)
 
     for i in range(len(labels_pathes)):
-        if i not in images_indices_val_labels:
-            images_indices_train_labels.append(i)
+        if i not in labels_indices_val:
+            labels_indices_train.append(i)
 
-    for i in images_indices_train_labels:
+    for i in labels_indices_train:
         labelsFormat(i,output_labels_train_folder)
 
