@@ -8,7 +8,6 @@ def labelsFormat(indice, labels_pathes, labels_path):
     kitti_labels = {"Car": 0, "Van": 1, "Truck": 2, "Pedestrian": 3, "Person_sitting": 4, "Cyclist": 5, "Tram": 6,  "Misc": 7, "DontCare": 7}
     img_size = (1242, 375)  # width, height: à vérifier
 
-    labels_folder = 'training/labels/'
     output_labels_folder = labels_path
 
     f_old = open(labels_pathes[indice], "r")
@@ -35,7 +34,6 @@ def labelsFormat(indice, labels_pathes, labels_path):
 
 if __name__ == '__main__':
 
-    kitti_labels = {"Car": 0, "Van": 1, "Truck": 2, "Pedestrian": 3, "Person_sitting": 4, "Cyclist": 5, "Tram": 6,  "Misc": 7, "DontCare": 7}
     img_size = (1242, 375)  # width, height: à vérifier
 
     images_folder = 'training/images/'
