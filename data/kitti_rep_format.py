@@ -44,6 +44,7 @@ if __name__ == '__main__':
     output_labels_val_folder = 'kitti/labels/val/'
     images_pathes = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Cl.png")]
     labels_pathes = [str(PosixPath(path)) for path in Path(labels_folder).rglob("*.txt")]
+    labels_pathes.sort()
 
     # put 1/5 in val
     random.shuffle(images_pathes)
