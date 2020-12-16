@@ -53,7 +53,7 @@ if __name__ == '__main__':
     for i in range(0,int(len(images_pathes)/5)):
         images_pathes_val.append(images_pathes.pop())
         tmp_path = output_val_folder + images_pathes_val[i][-13:]
-        print(mages_pathes_val[i][-13:-7])
+        print(images_pathes_val[i][-13:-7])
         labels_indices_val.append(int(images_pathes_val[i][-13:-7]))
         tmp_path = tmp_path.rsplit("_", 1)[0] + ".png"
         
