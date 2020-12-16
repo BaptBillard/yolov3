@@ -59,7 +59,7 @@ if __name__ == '__main__':
         
         os.rename(images_pathes_val[i], tmp_path)
 
-    for i in labels_indices_val_labels:
+    for i in labels_indices_val:
         labelsFormat(i, labels_pathes, output_labels_val_folder)
 
 
