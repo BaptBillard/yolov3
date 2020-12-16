@@ -74,5 +74,5 @@ if __name__ == '__main__':
             labels_indices_train.append(i)
 
     for i in labels_indices_train:
-        labelsFormat(i,output_labels_train_folder)
+        labelsFormat(i, labels_pathes, output_labels_train_folder)
 
