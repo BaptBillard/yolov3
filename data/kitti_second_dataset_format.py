@@ -39,8 +39,8 @@ if __name__ == '__main__':
     output_train_folder = "second_kitti/images/train/"
     output_val_folder = "second_kitti/images/val/"
     labels_folder = 'training/labels/'
-    output_labels_train_folder = 'kitti/labels/train/'
-    output_labels_val_folder = 'kitti/labels/val/'
+    output_labels_train_folder = 'second_kitti/labels/train/'
+    output_labels_val_folder = 'second_kitti/labels/val/'
     images_pathes_dp = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Dp.png")]
     images_pathes_dp.sort()
     images_pathes_of = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Of.png")]
