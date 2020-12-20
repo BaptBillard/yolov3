@@ -50,8 +50,8 @@ if __name__ == '__main__':
     # put 1/5 in val (no shuffle here because of the 3 lists, not sure it changes anything anyway)
     labels_indices_val = []
     for i in range(0,int(len(images_pathes_dp)/5)):
-        tmp_merged_path = images_pathes_dp.pop()  # just in order to save the name
-        tmp_img_dp = cv2.imread(tmp_merged_path, 0)
+        tmp_merged_path_val = images_pathes_dp.pop()  # just in order to save the name
+        tmp_img_dp = cv2.imread(tmp_merged_path_val, 0)
         tmp_img_of = cv2.imread(images_pathes_of.pop(), 0)
         tmp_img_vl = cv2.imread(images_pathes_vl.pop(), 0)
         
@@ -59,13 +59,13 @@ if __name__ == '__main__':
         tmp_merged_image = cv2.merge((tmp_img_dp, tmp_img_of, tmp_img_vl))
 
         # save the newly created image
-        tmp_merged_path = tmp_merged_path[:-7] + ".png"
-        tmp_merged_path = tmp_merged_path.rsplit('/', 2)
-        tmp_merged_path = output_val_folder + tmp_merged_path[2]
+        tmp_merged_path_val = tmp_merged_path_val[:-7] + ".png"
+        tmp_merged_path_val = tmp_merged_path_val.rsplit('/', 2)
+        tmp_merged_path_val = output_val_folder + tmp_merged_path_val[2]
 
-        cv2.imwrite(tmp_merged_path, tmp_merged_image)
+        cv2.imwrite(tmp_merged_path_val, tmp_merged_image)
 
-        labels_indices_val.append(int(tmp_merged_path[-10:-4]))
+        labels_indices_val.append(int(tmp_merged_path_val[-10:-4]))
 
     #save labels in the right place
     for i in range(0, len(labels_pathes)):
