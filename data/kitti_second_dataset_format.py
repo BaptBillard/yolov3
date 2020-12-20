@@ -51,6 +51,7 @@ if __name__ == '__main__':
     labels_pathes.sort()
 
     # put 1/5 in val (no shuffle here because of the 3 lists, not sure it changes anything anyway)
+    labels_indices_val = []
     for i in range(0,int(len(images_pathes_dp)/5)):
         tmp_merged_path = images_pathes_dp.pop()  # just in order to save the name
         tmp_img_dp = cv2.imread(tmp_merged_path, 0)
@@ -67,9 +68,11 @@ if __name__ == '__main__':
 
         cv2.imwrite(tmp_merged_path, tmp_merged_image)
 
+        labels_indices_val.append(int(tmp_merged_path[-10:-4]))
+
     #save labels in the right place
     for i in range(0, len(labels_pathes)):
-        if i <= int(len(images_pathes_dp)/5):
+        if i in labels_indices_val:
             labelsFormat(i, labels_pathes, output_labels_val_folder)
         else :
             labelsFormat(i, labels_pathes, output_labels_train_folder)
