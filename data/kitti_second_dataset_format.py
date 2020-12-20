@@ -42,11 +42,8 @@ if __name__ == '__main__':
     output_labels_train_folder = 'second_kitti/labels/train/'
     output_labels_val_folder = 'second_kitti/labels/val/'
     images_pathes_dp = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Dp.png")]
-    images_pathes_dp.sort()
     images_pathes_of = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Of.png")]
-    images_pathes_of.sort()
     images_pathes_vl = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Vl.png")]
-    images_pathes_vl.sort()
     labels_pathes = [str(PosixPath(path)) for path in Path(labels_folder).rglob("*.txt")]
     labels_pathes.sort()
 
