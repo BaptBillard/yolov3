@@ -53,7 +53,7 @@ if __name__ == '__main__':
     # put 1/5 in val (no shuffle here because of the 3 lists, not sure it changes anything anyway)
     labels_indices_val = []
     for i in range(0,int(len(images_pathes_dp)/5)):
-        tmp_merged_pat4/1AY0e-g6DJcsssN0AtC-hjXhq2SMjeWGC88EFXVy0TaZnGAyoJdlJJ9R8dXsh_val = images_pathes_dp.pop()  # just in order to save the name
+        tmp_merged_path_val = images_pathes_dp.pop()  # just in order to save the name
         tmp_img_dp = cv2.imread(tmp_merged_path_val, 0)
         tmp_img_of = cv2.imread(images_pathes_of.pop(), 0)
         tmp_img_vl = cv2.imread(images_pathes_vl.pop(), 0)
