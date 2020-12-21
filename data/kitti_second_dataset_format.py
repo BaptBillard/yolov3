@@ -42,11 +42,8 @@ if __name__ == '__main__':
     output_labels_train_folder = 'second_kitti/labels/train/'
     output_labels_val_folder = 'second_kitti/labels/val/'
     images_pathes_dp = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Dp.png")]
-    images_pathes_dp.sort()
     images_pathes_of = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Of.png")]
-    images_pathes_of.sort()
     images_pathes_vl = [str(PosixPath(path)) for path in Path(images_folder).rglob("*_Vl.png")]
-    images_pathes_vl.sort()
     labels_pathes = [str(PosixPath(path)) for path in Path(labels_folder).rglob("*.txt")]
     labels_pathes.sort()
 
@@ -79,7 +76,9 @@ if __name__ == '__main__':
 
 
     # put the 4/5 remaining in the train
+    int i = 0
     for image_path in images_pathes_dp:
+        i++
         tmp_merged_path = images_pathes_dp.pop()  # just in order to save the name
         tmp_img_dp = cv2.imread(tmp_merged_path, 0)
         tmp_img_of = cv2.imread(images_pathes_of.pop(), 0)
@@ -94,4 +93,4 @@ if __name__ == '__main__':
         tmp_merged_path = output_train_folder + tmp_merged_path[2]
 
         cv2.imwrite(tmp_merged_path, tmp_merged_image)
-
+    print(i)
