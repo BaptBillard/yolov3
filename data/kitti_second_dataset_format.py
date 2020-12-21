@@ -78,7 +78,7 @@ if __name__ == '__main__':
     # put the 4/5 remaining in the train
     i = 0
     for image_path in images_pathes_dp:
-        i++
+        i += 1
         tmp_merged_path = images_pathes_dp.pop()  # just in order to save the name
         tmp_img_dp = cv2.imread(tmp_merged_path, 0)
         tmp_img_of = cv2.imread(images_pathes_of.pop(), 0)
