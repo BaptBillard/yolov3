@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
 
     # put the 4/5 remaining in the train
-    int i = 0
+    i = 0
     for image_path in images_pathes_dp:
         i++
         tmp_merged_path = images_pathes_dp.pop()  # just in order to save the name
