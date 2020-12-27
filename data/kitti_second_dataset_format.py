@@ -51,10 +51,15 @@ if __name__ == '__main__':
     labels_indices_val = []
     print(len(images_pathes_dp))
     for i in range(0,int(len(images_pathes_dp)/5)):
-        tmp_merged_path_val = images_pathes_dp.pop()  # just in order to save the name
+        tmp_merged_path_val = images_pathes_dp.pop()
+        tmp_of = images_pathes_of.pop()
+        tmp_vl = images_pathes_vl.pop()  # just in order to save the name
+        os.remove(tmp_merged_path_val)
+        os.remove(tmp_of)
+        os.remove(tmp_vl)
         tmp_img_dp = cv2.imread(tmp_merged_path_val, 0)
-        tmp_img_of = cv2.imread(images_pathes_of.pop(), 0)
-        tmp_img_vl = cv2.imread(images_pathes_vl.pop(), 0)
+        tmp_img_of = cv2.imread(tmp_of, 0)
+        tmp_img_vl = cv2.imread(tmp_vl, 0)
         
         # channel order can be changed if needed
         tmp_merged_image = cv2.merge((tmp_img_dp, tmp_img_of, tmp_img_vl))
