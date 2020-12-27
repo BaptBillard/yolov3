@@ -49,6 +49,7 @@ if __name__ == '__main__':
 
     # put 1/5 in val (no shuffle here because of the 3 lists, not sure it changes anything anyway)
     labels_indices_val = []
+    print(len(images_pathes_dp))
     for i in range(0,int(len(images_pathes_dp)/5)):
         tmp_merged_path_val = images_pathes_dp.pop()  # just in order to save the name
         tmp_img_dp = cv2.imread(tmp_merged_path_val, 0)
@@ -76,9 +77,8 @@ if __name__ == '__main__':
 
 
     # put the 4/5 remaining in the train
-    i = 0
+    print(len(images_pathes_dp))
     for image_path in images_pathes_dp:
-        i += 1
         tmp_merged_path = images_pathes_dp.pop()  # just in order to save the name
         tmp_img_dp = cv2.imread(tmp_merged_path, 0)
         tmp_img_of = cv2.imread(images_pathes_of.pop(), 0)
@@ -93,4 +93,3 @@ if __name__ == '__main__':
         tmp_merged_path = output_train_folder + tmp_merged_path[2]
 
         cv2.imwrite(tmp_merged_path, tmp_merged_image)
-    print(i)
