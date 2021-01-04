@@ -54,15 +54,16 @@ if __name__ == '__main__':
         tmp_merged_path_val = images_pathes_dp.pop()
         tmp_of = images_pathes_of.pop()
         tmp_vl = images_pathes_vl.pop()  # just in order to save the name
-        os.remove(tmp_merged_path_val)
-        os.remove(tmp_of)
-        os.remove(tmp_vl)
         tmp_img_dp = cv2.imread(tmp_merged_path_val, 0)
         tmp_img_of = cv2.imread(tmp_of, 0)
         tmp_img_vl = cv2.imread(tmp_vl, 0)
         
         # channel order can be changed if needed
         tmp_merged_image = cv2.merge((tmp_img_dp, tmp_img_of, tmp_img_vl))
+
+        os.remove(tmp_merged_path_val)
+        os.remove(tmp_of)
+        os.remove(tmp_vl)
 
         # save the newly created image
         tmp_merged_path_val = tmp_merged_path_val[:-7] + ".png"
