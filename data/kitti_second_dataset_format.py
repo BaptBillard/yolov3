@@ -61,10 +61,6 @@ if __name__ == '__main__':
         # channel order can be changed if needed
         tmp_merged_image = cv2.merge((tmp_img_dp, tmp_img_of, tmp_img_vl))
 
-        os.remove(tmp_merged_path_val)
-        os.remove(tmp_of)
-        os.remove(tmp_vl)
-
         # save the newly created image
         tmp_merged_path_val = tmp_merged_path_val[:-7] + ".png"
         tmp_merged_path_val = tmp_merged_path_val.rsplit('/', 2)
