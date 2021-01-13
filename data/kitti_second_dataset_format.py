@@ -49,7 +49,6 @@ if __name__ == '__main__':
 
     # put 1/5 in val (no shuffle here because of the 3 lists, not sure it changes anything anyway)
     labels_indices_val = []
-    print(len(images_pathes_dp))
     for i in range(0,int(len(images_pathes_dp)/5)):
         tmp_merged_path_val = images_pathes_dp.pop()
         tmp_of = images_pathes_of.pop()
@@ -79,27 +78,14 @@ if __name__ == '__main__':
 
 
     # put the 4/5 remaining in the train
-    print(len(images_pathes_dp))
-    print(len(images_pathes_of))
-    print(len(images_pathes_vl))
-    print("dp: ", images_pathes_dp[:5])
-    print("of: ", images_pathes_of[:5])
-    print("vl: ", images_pathes_vl[:5])
-
-    debug = 0
-
     for image_path in images_pathes_dp:
-        # tmp_merged_path = images_pathes_dp.pop(0)  # just in order to save the name
-        # tmp_img_dp = cv2.imread(tmp_merged_path, 0)
-        # tmp_img_of = cv2.imread(images_pathes_of.pop(0), 0)
-        # tmp_img_vl = cv2.imread(images_pathes_vl.pop(0), 0)
+    for image_path in images_pathes_dp:
         tmp_merged_path = image_path
         tmp_path_of = image_path.rsplit('_',1)[0] + '_Of.png'
         tmp_path_vl = image_path.rsplit('_',1)[0] + '_Vl.png'
         tmp_img_dp = cv2.imread(tmp_merged_path, 0)
         tmp_img_of = cv2.imread(tmp_path_of, 0)
         tmp_img_vl = cv2.imread(tmp_path_vl, 0)
-
 
         # channel order can be changed if needed
         tmp_merged_image = cv2.merge((tmp_img_dp, tmp_img_of, tmp_img_vl))
