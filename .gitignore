@@ -24,7 +24,6 @@
 !cfg/yolov3*.cfg
 
 storage.googleapis.com
-runs/*
 data/*
 !data/kitti_rep_format.py
 !data/kitti_second_dataset_format.py
