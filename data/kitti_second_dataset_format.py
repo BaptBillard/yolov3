@@ -79,7 +79,6 @@ if __name__ == '__main__':
 
     # put the 4/5 remaining in the train
     for image_path in images_pathes_dp:
-    for image_path in images_pathes_dp:
         tmp_merged_path = image_path
         tmp_path_of = image_path.rsplit('_',1)[0] + '_Of.png'
         tmp_path_vl = image_path.rsplit('_',1)[0] + '_Vl.png'
