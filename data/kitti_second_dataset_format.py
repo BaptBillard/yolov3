@@ -95,7 +95,3 @@ if __name__ == '__main__':
         tmp_merged_path = output_train_folder + tmp_merged_path[2]
 
         cv2.imwrite(tmp_merged_path, tmp_merged_image)
-
-        debug += 1
-
-    print("debug: ", debug)
